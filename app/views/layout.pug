@@ -19,14 +19,27 @@ html
       nav
         ul
           li
-            a.selected(href="index.html" class="selected") Home
+            a.selected(href="/" class="selected") Home
           li
-            a(href="#") About
+            a(href="/articles") Articles
           li
-            a(href="#") The Team
+            a(href="/about") About
           li
-            a(href="#") Journal
+            a(href="/contact") Contact Me
+
+      .footer.clearfix
+        ul.social.clearfix
           li
-            a(href="contact.html") Contact Us
+            a.fb(href="#" data-title="Facebook")
+          li
+            a.google(href="#" data-title="Facebook")
+          li
+            a.twitter(href="#" data-title="Facebook")
+          li
+            a.fb(href="#" data-title="Facebook")
+      .rights
+        p Nuno Cruz
+        p Coimbra
+			
     section.main.clearfix
       block content

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  section.top(style="background: url('http://placehold.it/1300x200');")
+    .wrapper.content_header.clearfix
+      .work_nav
+
+        ul.btn.clearfix
+          li
+            a.previous(href="/" data-title="Home")
+          li
+            a.grid(href="/assets/projects/hexo-theme-magnetic/" class="grid" data-title="Portfolio")
+          li
+            a.next(href="/about"  data-title="About")
+
+      h1.title Articles
+      
+  section.wrapper
+    .content.archives
