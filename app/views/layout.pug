@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title= title
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0")
+
+    link(rel="stylesheet" type="text/css" href="css/reset.css")
+    link(rel="stylesheet" type="text/css" href="css/main.css")
+    script(type="text/javascript" src="js/jquery.js")
+    script(type="text/javascript" src="js/main.js")
+
+  body
+    header
+      div.logo
+        a(href="index.html")
+        img( src="img/logo.png" title="Anarbel" alt="Anarbel")
+      #menu_icon
+      nav
+        ul
+          li
+            a.selected(href="index.html" class="selected") Home
+          li
+            a(href="#") About
+          li
+            a(href="#") The Team
+          li
+            a(href="#") Journal
+          li
+            a(href="contact.html") Contact Us
+    section.main.clearfix
+      block content
