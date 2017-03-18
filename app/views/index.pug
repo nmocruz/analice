@@ -9,7 +9,16 @@ block content
           li
             a.next(href="/articles"  data-title="Articles")
 
-      h1.title Home
+      h1.title Welcome
+    
       
   section.wrapper
     .content.archives
+      ul.post-list
+        each post in posts
+          li
+            P.post-date= post.date
+            h4
+              a(href='/posts/'+post.url)= post.title
+            p= post.resume
+      

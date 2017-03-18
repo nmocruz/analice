@@ -11,7 +11,19 @@ block content
           li
             a.grid(href="/" class="grid" data-title="Home")
 
-      h1.title Contact
+      h1.title Contact Me
       
   section.wrapper
-    .content.archives
+    #contact-area.content
+        form
+            fieldset
+                div
+                    label Name:
+                    input(name=name)
+                div
+                    label Email:
+                    input(name=email)
+                div
+                    label Message:
+                    textarea(name=message)
+                input.submit-button(type="submit" name="submit" value="Submit")

@@ -10,10 +10,12 @@
     "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
     "lowdb": "^0.16.0",
+    "markdown": "^0.5.0",
     "morgan": "^1.6.1",
     "pug": "^2.0.0-beta6",
     "serve-favicon": "^2.3.0",
-    "simplemde": "^1.11.2"
+    "simplemde": "^1.11.2",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "@types/body-parser": "0.0.33",
