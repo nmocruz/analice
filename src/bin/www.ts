@@ -4,6 +4,7 @@
 */
 
 import app from '../app';
+import * as http from 'http';
 import * as spdy from 'spdy';
 import * as fs from 'fs';
 /**
@@ -22,8 +23,9 @@ const options = {
   cert: fs.readFileSync('domain.crt'),
   ca: fs.readFileSync('CSR.csr')
 };
-
-var server = spdy.createServer(options, app);
+//
+//var server = spdy.createServer(options, app);
+var server = http.createServer(app);
 
 /**
  * Listen on provided port,on all network interfaces.

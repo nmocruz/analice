@@ -6,3 +6,5 @@ npm-debug.log
 bower_components/*
 *.key
 *.csr
+*.pem
+*.crt
