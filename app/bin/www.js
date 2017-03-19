@@ -2,14 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = require("../app");
 const http = require("http");
-const fs = require("fs");
 const port = normalizePort(process.env.PORT || 3000);
 app_1.default.set('port', port);
-const options = {
-    key: fs.readFileSync('domain.key'),
-    cert: fs.readFileSync('domain.crt'),
-    ca: fs.readFileSync('CSR.csr')
-};
 var server = http.createServer(app_1.default);
 server.listen(port, onListening);
 server.on('error', onError);
