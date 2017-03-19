@@ -1,7 +1,7 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = require("../app");
-const spdy = require("spdy");
+const http = require("http");
 const fs = require("fs");
 const port = normalizePort(process.env.PORT || 3000);
 app_1.default.set('port', port);
@@ -10,7 +10,7 @@ const options = {
     cert: fs.readFileSync('domain.crt'),
     ca: fs.readFileSync('CSR.csr')
 };
-var server = spdy.createServer(options, app_1.default);
+var server = http.createServer(app_1.default);
 server.listen(port, onListening);
 server.on('error', onError);
 function normalizePort(val) {
