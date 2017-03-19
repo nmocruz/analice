@@ -16,13 +16,14 @@ app.set('port',port);
 
 /**
  * Create HTTP server.
- */
+
 
 const options = {
   key: fs.readFileSync('domain.key'),
   cert: fs.readFileSync('domain.crt'),
   ca: fs.readFileSync('CSR.csr')
 };
+ */
 //
 //var server = spdy.createServer(options, app);
 var server = http.createServer(app);
