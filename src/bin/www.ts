@@ -4,8 +4,8 @@
 */
 
 import app from '../app';
-import * as http from 'http';
-
+import * as spdy from 'spdy';
+import * as fs from 'fs';
 /**
  * Get port from environment and store in Express.
  */
@@ -17,7 +17,13 @@ app.set('port',port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+const options = {
+  key: fs.readFileSync('domain.key'),
+  cert: fs.readFileSync('domain.crt'),
+  ca: fs.readFileSync('CSR.csr')
+};
+
+var server = spdy.createServer(options, app);
 
 /**
  * Listen on provided port,on all network interfaces.

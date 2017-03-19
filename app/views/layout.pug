@@ -1,45 +1,55 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    title= title
-    meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0")
+if(!asPartial)
+  doctype html
+  html
+    head
+      meta(charset='utf-8')
+      title= title
+      meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0")
 
-    link(rel="stylesheet" type="text/css" href="css/reset.css")
-    link(rel="stylesheet" type="text/css" href="css/main.css")
-    script(type="text/javascript" src="js/jquery.js")
-    script(type="text/javascript" src="js/main.js")
+      link(rel="stylesheet" type="text/css" href="css/reset.css")
+      link(rel="stylesheet" type="text/css" href="css/main.css")
+      script(type="text/javascript" src="js/jquery.js")
+      script(type="text/javascript" src="js/main.js")
+      
+      link(rel="preload" href="/")
+      link(rel="preload" href="/about/")
+      link(rel="preload" href="/articles/")
+      link(rel="preload" href="/about/")
+      link(rel="preload" href="/contact/")
 
-  body
-    header
-      div.logo
-        a(href="index.html")
-        img( src="img/logo.png" title="Anarbel" alt="Anarbel")
-      #menu_icon
-      nav
-        ul
-          li
-            a.selected(href="/" class="selected") Home
-          li
-            a(href="/articles") Articles
-          li
-            a(href="/about") About
-          li
-            a(href="/contact") Contact Me
+    body
+      header
+        div.logo
+          a(href="index.html")
+          img( src="img/logo.png" title="Anarbel" alt="Anarbel")
+        #menu_icon
+        nav
+          ul
+            li
+              a.selected(href="/" class="selected" display-to="main") Home
+            li
+              a(href="/articles" display-on="main") Articles
+            li
+              a(href="/about" display-on="main") About
+            li
+              a(href="/contact" display-on="main") Contact Me
 
-      .footer.clearfix
-        ul.social.clearfix
-          li
-            a.fb(href="#" data-title="Facebook")
-          li
-            a.google(href="#" data-title="Facebook")
-          li
-            a.twitter(href="#" data-title="Facebook")
-          li
-            a.fb(href="#" data-title="Facebook")
-      .rights
-        p Nuno Cruz
-        p Coimbra
-			
-    section.main.clearfix
-      main-view(route="^/$") Home
+        .footer.clearfix
+          ul.social.clearfix
+            li
+              a.fb(href="#" data-title="Facebook")
+            li
+              a.google(href="#" data-title="Facebook")
+            li
+              a.twitter(href="#" data-title="Facebook")
+            li
+              a.fb(href="#" data-title="Facebook")
+        .rights
+          p Nuno Cruz
+          p Coimbra
+        
+      section.main.clearfix
+        main-view#main(route="^/$") 
+          block content
+else
+  block content

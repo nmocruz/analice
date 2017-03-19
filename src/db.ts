@@ -36,5 +36,7 @@ export function addPost(title){
 
 export function getPostHtml(id: number){
     
-    fs.readFile('post'+/)
+    fs.readFile('post/'+id, (text)=>{
+        
+    });
 }

@@ -22,17 +22,20 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 
+// set iAjax to use a conditional for render layout
+app.use((req, res, next)=>{
+    res.locals.asPartial = req.query.asPartial != null;  
+    next();
+});
+
 app.use('/',index);
-
-var postApp = express();
-
-app.use('/posts', postApp);
 //catch 404 and forward to error handler
 app.use((req,res,next) => {
   var err = new Error('Not Found');
   err['status'] = 404;
   next(err);
 });
+
 
 //error handlers
 

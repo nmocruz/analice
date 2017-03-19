@@ -75,6 +75,51 @@ $(document).ready(function(){
 });
 
 
+class MainView extends HTMLElement {
 
+    createdCallback () {
+        this._view = null;
+        this._isRemote = (this.getAttribute('remote') !== null);
+    }
+
+    
+   loadView (data) {
+       
+        this._view = new DocumentFragment();
+        const xhr = new XMLHttpRequest();
+
+        xhr.onload = evt => {
+            const newDoc = evt.target.response;
+
+            while (this.firstChild) {
+                this.removeChild(this.firstChild);
+            }
+            // Copy in the child nodes from the parent.
+            newDoc.childNodes.forEach(node => {
+                this._view.appendChild(node);
+            });
+
+            // Add the fragment to the page.
+            this.appendChild(this._view);
+        };
+        xhr.responseType = 'document';
+        xhr.open('GET', `${data}?asPartial`);
+        xhr.send();
+  }
+}
+document.registerElement('main-view', MainView);
+
+document.addEventListener('click', (event)=>{
+    let target = event.target.getAttribute("display-on");
+    if(target){
+        event.preventDefault();
+        window.history.pushState(null, null, event.target.href);
+        let mainView = document.getElementById(target); 
+        if(mainView)
+        {
+            mainView.loadView(event.target.href)
+        }   
+    }
+})
 
 

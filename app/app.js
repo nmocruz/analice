@@ -14,6 +14,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use((req, res, next) => {
+    res.locals.asPartial = req.query.asPartial != null;
+    next();
+});
 app.use('/', index_1.default);
 app.use((req, res, next) => {
     var err = new Error('Not Found');
